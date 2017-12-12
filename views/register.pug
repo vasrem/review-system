@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Review System 
+    meta(name='viewport', content='width=device-width', initial-scale='1')
+    link(href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css', rel='stylesheet', integrity='sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT', crossorigin='anonymous')
+    link(href='/css/main.css', rel='stylesheet')
+  body
+    div#container-login(class='center-block container')
+      h1(class='text-center') Register
+      div#inner-container(class='col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4')
+        form#login-form(action='/register', method='post')
+          div(class='form-group')
+            label(for='labelUsername') Username
+            input(type='text', class='form-control', id='inputUsername', name='inputUsername', placeholder='Username', required)
+          div(class='form-group')
+            label(for='labelPassword') Password
+            input(type='password', class='form-control', id='inputPassword', name='inputPassword', placeholder='Password', required)
+          if messages.length > 0
+            each item in messages
+              if item
+                p.text-danger.text-center=item
+          button(type='submit', class='btn center-block') Sign up
+
+script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous")
+script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")

@@ -1,0 +1,97 @@
+mixin pagination(pages, maxpages, current)
+  div.text-center
+    ul(class="pagination")
+      if current==1
+        li(class="page-item disabled")
+          a(class="page-link" href="/admin?page=1") &laquo;
+      else
+        li(class="page-item")
+          a(class="page-link" href="/admin?page=1") &laquo;
+      - var start = current - pages/2 < 0 ? 0 : current - pages/2 
+      - var start = start + pages > maxpages ? maxpages-pages : start 
+      - for(var index = 1 ; index <= pages; index++) 
+        - var val = start+index
+        if val==current
+          li(class="page-item active")
+            a(class="page-link" href="/admin?page="+val)=val
+        else
+          li(class="page-item")
+            a(class="page-link" href="/admin?page="+val)=val
+      if maxpages==current
+        li(class="page-item disabled")
+          a(class="page-link" href="/admin?page="+maxpages) &raquo;
+      else
+        li(class="page-item")
+          a(class="page-link" href="/admin?page="+maxpages) &raquo;
+mixin review(id, name, email, service, stars, date, notification, review)
+  tr
+    td=id
+    td=name
+    td=email
+    td=service
+    td=stars
+    td=date
+    td=notification
+    td 
+      form.mailform(method="post", action='/sendmail')
+        a.btn.btn-custom(href="#modal_"+id data-toggle="modal")
+          i(class="fa fa-eye" aria-hidden="true")
+        input(name="reviewId" value=id)
+        button.btn.btn-custom(type="submit")
+          i(class="fa fa-paper-plane" aria-hidden="true")
+  div(class="modal" id="modal_"+id)
+    div(class="modal-dialog" role="document")
+      div(class="modal-content")
+        div(class="modal-header")
+          h5(class="modal-title") Review ##{id}
+        div(class="modal-body") 
+          p=review
+        div(class="modal-footer")
+          button(type="button" class="btn btn-primary" data-dismiss="modal") Close
+doctype html
+html
+  head
+    title Review System | Admin Panel 
+    meta(name='viewport', content='width=device-width', initial-scale='1')
+    link(href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css', rel='stylesheet', integrity='sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT', crossorigin='anonymous')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
+    link(href='/css/panel.css', rel='stylesheet')
+  nav#main-navbar.navbar.navbar-inverse.navbar-fixed-top
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        img.navbar-brand(src='/img/logo_bluerent_negative.png')
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='/newreview') New Review
+          li
+            a(href='/logout') Logout
+#main-container.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12
+      h1.page-header.text-center Reviews
+      .col-xs-12.col-sm-12.col-md-8.col-lg-8.col-md-offset-2.col-lg-offset-2
+        table(class="table table-striped table-hover table-bordered")
+          thead(class="thead-dark")
+            tr
+              th #
+              th Name
+              th E-mail
+              th Service
+              th Stars
+              th Date
+              th Notifications
+              th Actions
+          tbody
+            if reviews.length > 0
+              each item in reviews
+                +review(item._id, item.name, item.email, item.service, item.stars, item.timestamp, item.notifications, item.review)
+        +pagination(data.maxpages > 4 ? 4 : data.maxpages, data.maxpages, data.page)
+script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
+script(src="/js/sendmail.js")

@@ -1,0 +1,94 @@
+.navbar-brand {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#main-navbar {
+    background-color: #2c3e50;
+    margin-bottom: 100px !important;
+}
+
+#main-navbar .navbar-right li {
+    margin: 2px;
+}
+
+#main-navbar .navbar-right a:hover {
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#main-navbar .navbar-header a:hover {
+    color: #fff;
+}
+
+#main-navbar .navbar-header a:visited {
+    color: #fff;
+}
+
+#main-container {
+    margin-top: 40px;
+}
+
+#main-container td:not(:last-child) {
+    vertical-align: middle;
+}
+
+#main-container td:last-child {
+    text-align: center;
+}
+
+.mailform input {
+    display: none;
+}
+
+.btn-custom {
+    color: black;
+    background-color: transparent;
+    border: 1px solid grey;
+    padding: 5px 7.5px;
+    margin-right: 2px;
+}
+
+.btn-custom:visited {
+    color: black;
+}
+
+.btn-custom:hover {
+    color: black;
+    border: 1px solid #ff6904;
+}
+
+.btn-custom:focus {
+    color: black;
+    border: 1px solid #ff6904;
+}
+
+.pagination>.disabled>span,
+.pagination>.disabled>span:hover,
+.pagination>.disabled>span:focus,
+.pagination>.disabled>a,
+.pagination>.disabled>a:hover,
+.pagination>.disabled>a:focus {
+    background-color: #95a5a6;
+}
+
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+    background-color: #ff6904;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    background-color: #ff8604;
+}
+
+.pagination>li>a:hover,
+.pagination>li>span:hover,
+.pagination>li>a:focus,
+.pagination>li>span:focus {
+    background-color: #ff6904;
+}

@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title Review System
+    meta(name='viewport', content='width=device-width', initial-scale='1')
+    link(href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css', rel='stylesheet', integrity='sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT', crossorigin='anonymous')
+    link(href='/css/main.css', rel='stylesheet')
+    link(href='/css/jquery.raty.css', rel='stylesheet')
+  body
+    div#header
+      div(class='text-center')
+        a(href="/newreview")
+          img(src='img/logo_bluerent.png')
+    div#main-container(class='center-block container')
+      div#inner-container(class='col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3')
+        form#review-form(action='/newreview', method='post')
+          div(class='form-group')
+            label(for='labelName') Full name
+            input(type='text', class='form-control', id='inputName', name='inputName', placeholder='Please enter your full name here..', required)
+          div(class='form-group')
+            label(for='labelEmail') E-mail
+            input(type='email', class='form-control', id='inputEmail', name='inputEmail', placeholder='Please enter your email here..', required)
+          div(class='form-group')
+            label(for='labelReview') Service
+            br
+            select(class="custom-select" name='inputService')
+              option(selected="") Please select service
+              option(value="Park&Fly") Park & Fly
+              option(value="CarHire") Car Hire
+              option(value="CarRental") Car Rental
+          div(class='form-group')
+            label(for='labelStar') Rate us!
+            div#star
+            input(type='number', class='form-control', id='inputStar', name='inputStar', required)
+          div(class='form-group')
+            label(for='labelReview') Review
+            textarea(class='form-control' id='inputReview' name='inputReview' rows='4' placeholder='Please enter your review here..', required)
+          button(type='submit', class='btn center-block') Submit
+script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous")
+script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
+script(src="/js/jquery.raty.js")
+script(src="/js/star.js")
