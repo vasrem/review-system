@@ -40,11 +40,11 @@ Bingo! The application is accessible at port `3000`.
 
 1. Firstly, you should create an account to the `/register` route.
 
-2. and then find the user in the users collection and change its key named `active` to `true`.
+2. and then find the user in the users collection and change the value of key named `active` to `true`.
 
 ### Admin Access
 
-If you want to enable admin access to an account you should also change its key named `isAdmin` to `true`.
+If you want to enable admin access to an account you should also change the value of key named `isAdmin` to `true`.
 
 ## Avaiable Routes
 
