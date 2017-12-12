@@ -1,5 +1,5 @@
 {
-  "name": "rsystem",
+  "name": "review-system",
   "version": "1.0.0",
   "description": "A review system",
   "scripts": {
@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vasilis Remmas",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
