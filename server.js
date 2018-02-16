@@ -26,9 +26,10 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use('/', routes)
 app.use(express.static(__dirname + '/public'));
-
-app.listen(3000, () => {
-	console.log('Express server started on port 3000')
-});
+if (!module.parent) {
+	app.listen(3000, () => {
+		console.log('Express server started on port 3000')
+	});
+}
 
 module.exports = app

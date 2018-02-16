@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+    - docker
+
+before_script:
+    - docker-compose up -d
+
+script:
+    - docker exec -it app bash -c "npm test"
+
+after_script:
+    - docker-compose down
