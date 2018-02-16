@@ -1,4 +1,5 @@
 # A Review System
+[![Build Status](https://travis-ci.org/vasrem/review-system.svg?branch=master)](https://travis-ci.org/vasrem/review-system)
 
 An app to get feedback about your business. It has a user interface to submit new reviews and an admin panel to read those reviews and send auto-generated emails. It was created for a specific company but can be easily modified.
 
